@@ -1,0 +1,191 @@
+﻿@page
+@model Website.Pages.Employees.ManageModel
+@{
+    ViewData["Title"] = "Manage Employees || EMS64 ";
+}
+
+<div class="app-body">
+    <div class="card mb-0">
+        <div class="card-header d-flex justify-content-between align-content-center">
+            @{
+                if (Model.isNew)
+                {
+                    <span class="fw-bold">
+                        Register Employee
+                    </span>
+                }
+                else
+                {
+                    <span class="fw-bold">
+                        Update Employee
+                    </span>
+                }
+                <a asp-page="Index" class="btn btn-primary">Back</a>
+            }
+        </div>
+        <div class="card-body">
+            <div class="row col-lg-10 offset-1">
+                <span class="fw-bold">Employee Details:</span>
+                <form method="post" asp-page-handler="Create" enctype="multipart/form-data" class="p-4 rounded-3 shadow-lg bg-body-tertiary">
+
+                    <input type="hidden" asp-for="modelDto.IsActive" value="true" />
+                    <input type="hidden" asp-for="modelDto.Id" />
+
+                    <div class="row gx-4 align-items-start">
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="d-flex flex-column align-items-center mb-4">
+                                <div class="profile-photo-container mb-3" style="width: 150px; height: 150px;">
+                                    @{
+                                        if (Model.modelDto.ImgPath != null)
+                                        {
+                                            <img id="profilePreview" src="~/ProfilePhoto/@Model.modelDto.ImgPath" class="profile-photo img-thumbnail" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover;" />
+                                        }
+                                        else
+                                        {
+                                            <img id="profilePreview" src="~/ProfilePhoto/defaultFemale.png" class="profile-photo img-thumbnail" alt="Profile Preview" style="width: 100%; height: 100%; object-fit: cover;" />
+                                        }
+                                    }
+
+                                </div>
+
+                                <label class="form-label fw-bold">Profile Photo</label>
+                                <input type="hidden" asp-for="modelDto.ImgPath" />
+                                <input type="file" id="ImgFile" name="ImgFile" class="form-control form-control-sm" accept=".jpg, .png, .jpeg" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9 col-md-8 col-sm-12">
+
+                            <div class="row gx-4">
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">Name</label>
+                                        <input type="text" asp-for="modelDto.EName" class="form-control" placeholder="Employee Name" />
+                                        <span asp-validation-for="modelDto.EName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row gx-4">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a1">State</label>
+                                        <select class="form-control" id="sid" asp-for="modelDto.SId" asp-items="@ViewBag.states">
+                                            <option value="">-Select State-</option>
+                                        </select>
+                                        <span asp-validation-for="modelDto.SId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">District</label>
+                                        <select class="form-control" id="did" asp-for="modelDto.DId" asp-items="@ViewBag.districts">
+                                            <option value="">-Select District-</option>
+                                        </select>
+                                        <span asp-validation-for="modelDto.DId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">Department</label>
+                                        <select class="form-control" asp-for="modelDto.DeptId" asp-items="@ViewBag.departments">
+                                            <option value="">-Select Department-</option>
+                                        </select>
+                                        <span asp-validation-for="modelDto.DeptId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row gx-4">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">Gender</label>
+                                        <select class="form-control" asp-for="modelDto.Gender">
+                                            <option value="">-Select Gender-</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <span asp-validation-for="modelDto.Gender" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">DOB</label>
+                                        <input type="date" asp-for="modelDto.DOB" class="form-control" />
+                                        <span asp-validation-for="modelDto.DOB" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">DOJ</label>
+                                        <input type="date" asp-for="modelDto.DOJ" class="form-control" />
+                                        <span asp-validation-for="modelDto.DOJ" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row gx-4">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">Salary</label>
+                                        <input type="number" asp-for="modelDto.Salary" class="form-control" min="1000" max="200000" />
+                                        <span asp-validation-for="modelDto.Salary" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="a2">Performance</label>
+                                        <br />
+                                        <div class="star-rating">
+                                            @for (int i = 5; i >= 1; i--)
+                                            {
+                                                <input type="radio"
+                                                       id="star@(i)"
+                                                       name="modelDto.Rating"
+                                                       value="@i"
+                                                       class="form-control-sm"
+                                                @(Model.modelDto.Rating == i ? "checked" : "") />
+
+                                                <label for="star@(i)" title="@i star">★</label>
+                                            }
+                                        </div>
+                                        <span asp-validation-for="modelDto.Rating" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="mb-3">
+                                        @{
+                                            if (Model.isNew)
+                                            {
+                                                <button type="submit" class="btn btn-primary mt-4 col-lg-6 offset-2">Save</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit" class="btn btn-primary mt-4 col-lg-6 offset-2">Update</button>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    <script src="~/js/custom/employees.js"></script>
+}

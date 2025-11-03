@@ -1,0 +1,33 @@
+// Stacked Bar Chart
+Morris.Bar({
+	element: "stackedBar",
+	data: [
+		{ x: "2023 Q1", y: 3, z: 2, a: 3 },
+		{ x: "2023 Q2", y: 2, z: null, a: 1 },
+		{ x: "2023 Q3", y: 0, z: 2, a: 1 },
+		{ x: "2023 Q4", y: 2, z: 3, a: 3 },
+		{ x: "2022 Q1", y: 3, z: 2, a: 3 },
+		{ x: "2022 Q2", y: 2, z: null, a: 1 },
+		{ x: "2022 Q3", y: 0, z: 2, a: 4 },
+		{ x: "2022 Q4", y: 2, z: 3, a: 3 },
+	],
+	xkey: "x",
+	ykeys: ["y", "z", "a"],
+	labels: ["Y", "Z", "A"],
+	stacked: true,
+	hideHover: "auto",
+	resize: true,
+	gridLineColor: "#cccccc",
+	barColors: [
+		"#493f94",
+		"#5247a7",
+		"#5b4fb9",
+		"#6b61c0",
+		"#7c72c7",
+		"#8c84ce",
+		"#9d95d5",
+		"#ada7dc",
+		"#bdb9e3",
+		"#cecaea",
+	],
+});

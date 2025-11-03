@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home | EMSystem ";
+}
+
+<div class="app-body">
+    <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header bg-primary text-white">            
+            <h4 class="display-8 m-0">Welcome to EMS - 64</h4>
+        </div>
+        <div class="card-body">            
+            <div class="card p-0 mt-2 border-light shadow-sm">                
+                @await Html.PartialAsync("_EmployeeListPartial", Model.EmployeesCommonVM)
+            </div>
+        </div>
+    </div>
+</div>

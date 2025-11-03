@@ -1,0 +1,30 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio folders
+.vs/
+*.user
+*.suo
+
+# Publish output
+publish/
+Website/wwwroot/lib/
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+
+# Environment-specific settings
+appsettings.Development.json
+appsettings.Local.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Others
+*.dbmdl
+*.bak
+*.swp

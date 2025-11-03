@@ -1,0 +1,103 @@
+﻿@using Application.ViewModels
+@model List<EmployeesCommonVM>
+
+
+<div class="card-body p-0">
+    <div class="table-outer">
+        @{
+            var employeeList = Model as List<EmployeesCommonVM>;
+            if (employeeList != null && employeeList.Count > 0)
+            {
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover m-0 truncate">
+                        <thead>
+                            <tr>
+                                <th scope="col">Employee Name</th> 
+                                <th scope="col">Gender</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">DOJ</th>
+                                <th scope="col">DOB</th>
+                                <th scope="col">State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in employeeList)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        @{
+                                            if (string.IsNullOrEmpty(item.ImgPath))
+                                            {
+                                                if (item.Gender == "Female")
+                                                {
+                                                    <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/defaultFemale.png"
+                                                         alt="Bootstrap Gallery">
+                                                    <br />
+                                                    <span class="d-block">@item.EName</span>
+                                                }
+                                                else
+                                                {
+                                                    <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/defaultMale.png"
+                                                         alt="Bootstrap Gallery">
+                                                    <br />
+                                                    <span class="d-block">@item.EName</span>
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/@item.ImgPath"
+                                                     alt="Bootstrap Gallery">
+
+                                                <br />
+                                                <span class="d-block">@item.EName</span>
+                                            }
+                                            <div class="rating-display">
+                                                @{
+                                                    int rating = (int)(item.Rating ?? 0);
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        if (i <= rating)
+                                                        {
+                                                            <span class="text-warning">★</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text-muted">★</span>
+                                                        }
+                                                    }
+                                                    <small class="text-muted">(@rating)</small>
+                                                }
+                                            </div>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @item.Gender
+                                    </td>
+                                    <td>
+                                        @item.DepartmentName
+                                    </td>
+                                    <td>
+                                        @(item.DOJ?.ToShortDateString() ?? "NA")
+                                    </td>
+                                    <td>
+                                        @(item.DOB?.ToShortDateString() ?? "NA")
+                                    </td>
+                                    <td>
+                                        @item.StateName
+                                    </td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <span class="fw-bold text-danger d-block p-3">No employee records found.</span>
+            }
+        }
+    </div>
+</div>

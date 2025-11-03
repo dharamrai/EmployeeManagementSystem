@@ -1,0 +1,154 @@
+﻿@page
+@model Website.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Employees || EMS64";
+}
+
+<div class="app-body">
+    <div class="card">
+
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-content-center">
+                <span class="fw-bold card-subtitle"> Employee List</span>
+                <a asp-page="Manage" class="btn btn-primary">Add New</a>
+            </div>
+            @{
+                if (TempData["Notification"] != null)
+                {
+                    <div class="alert alert-info alert-dismissible show fade mt-1" role="alert">
+                        <span class="fw-bold card-footer"> @TempData["Notification"].ToString() </span>
+                        <button class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="card-body">
+
+            <div class="row gx-4">
+                <div class="col-sm-12">
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <div class="table-outer">
+                                @{
+                                    if (Model.EmployeesCommonVM.Count > 0 && Model.EmployeesCommonVM != null)
+                                    {
+                                        <div class="table-responsive">
+                                            <table class="table align-middle table-hover m-0 truncate">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">Gender</th>
+                                                        <th scope="col">Department</th>
+                                                        <th scope="col">DOJ</th>
+                                                        <th scope="col">DOB</th>
+                                                        <th scope="col">State</th>
+                                                        <th scope="col">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @{
+                                                        foreach (var item in Model.EmployeesCommonVM)
+                                                        {
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    @{
+                                                                        if (string.IsNullOrEmpty(item.ImgPath))
+                                                                        {
+                                                                            if (item.Gender == "Female")
+                                                                            {
+                                                                                <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/defaultFemale.png"
+                                                                                     alt="Bootstrap Gallery">
+                                                                                <br />
+                                                                                <span class="d-block">@item.EName</span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/defaultMale.png"
+                                                                                     alt="Bootstrap Gallery">
+                                                                                <br />
+                                                                                <span class="d-block">@item.EName</span>
+                                                                            }
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <img class="rounded-circle img-4x me-2" src="~/ProfilePhoto/@item.ImgPath"
+                                                                                 alt="Bootstrap Gallery">
+
+                                                                            <br />
+                                                                            <span class="d-block">@item.EName</span>
+                                                                        }
+                                                                        <div class="rating-display">
+                                                                            @{
+                                                                                int rating = (int)(item.Rating ?? 0);
+                                                                                for (int i = 1; i <= 5; i++)
+                                                                                {
+                                                                                    if (i <= rating)
+                                                                                    {
+                                                                                        <span class="text-warning">★</span>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <span class="text-muted">★</span>
+                                                                                    }
+                                                                                }
+                                                                                <small class="text-muted">(@rating)</small>
+                                                                            }
+                                                                        </div>
+                                                                    }
+
+                                                                </td>
+                                                                <td>
+                                                                    @item.Gender
+                                                                </td>
+                                                                <td>
+                                                                    @item.DepartmentName
+                                                                </td>
+                                                                <td>
+                                                                    @(item.DOJ?.ToShortDateString() ?? "NA")
+                                                                </td>
+                                                                <td>
+                                                                    @(item.DOB?.ToShortDateString() ?? "NA")
+                                                                </td>
+                                                                <td>
+                                                                    @item.StateName
+                                                                </td>
+                                                                <td>
+                                                                    <a class="btn btn-info btn-sm" asp-page="Manage" asp-route-id="@item.Id">
+                                                                        <i class="bi bi-pencil"></i>
+                                                                    </a>
+                                                                    <form method="post" asp-page-handler="Delete" onsubmit="return confirmDelete(event, @item.Id)" class="d-inline">
+                                                                        <input type="hidden" name="id" value="@item.Id" />
+                                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+
+                                                        }
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span class="fw-bold text-danger">No record found</span>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

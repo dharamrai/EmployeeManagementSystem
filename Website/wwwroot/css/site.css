@@ -1,0 +1,117 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.text-warning {
+    color: #ffc107 !important; /* Gold color for filled stars */
+}
+
+.text-muted {
+    color: #dee2e6 !important; /* Light gray for empty stars */
+}
+
+/* If using Unicode stars */
+td span {
+    font-size: 1.2em;
+}
+
+
+/*star from here*/
+.star-rating {
+    direction: rtl; /* so stars fill from left to right visually */
+    display: inline-flex;
+}
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 2rem;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .star-rating input:checked ~ label {
+        color: gold;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: gold;
+    }
+
+/*Input star end here*/
+
+/*View span star start here*/
+/* Reusing your CSS for star size and colors, adapted for display */
+.rating-display span {
+    font-size: 1.5rem; /* Adjust star size to look good in the table */
+}
+
+/* Ensure these color utilities are defined (they usually are in Bootstrap) */
+.text-warning {
+    color: #ffc107 !important; /* Gold color for filled stars */
+}
+
+.text-muted {
+    color: #dee2e6 !important; /* Light gray for empty stars */
+}
+
+/* Optional: To make the rating itself display inline if needed */
+.rating-display {
+    white-space: nowrap;
+}
+
+/*View span star end here*/
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #dee2e6;
+    border-radius: 10px;
+}
+
+.profile-photo-container {
+    position: relative;
+}
+
+.form-control-lg {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
