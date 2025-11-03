@@ -1,6 +1,7 @@
 # 🧑‍💼 Employee Management System (ASP.NET Core Razor Pages)
 
-A **Clean Architecture-based Employee Management System** built with **ASP.NET Core Razor Pages**.  
+A **Clean Architecture-based Employee Management System** built with **ASP.NET Core 8.0 Razor Pages** and **SQL Server**.
+
 It demonstrates layered design, repository pattern, and enterprise-ready architecture suitable for scalable business applications.
 
 ---
@@ -19,6 +20,7 @@ This solution follows the **Clean Architecture** approach, ensuring separation o
 
 ## 🧩 Tech Stack
 
+- **.NET 8.0 (LTS)**
 - **ASP.NET Core Razor Pages**
 - **Entity Framework Core**
 - **SQL Server**
