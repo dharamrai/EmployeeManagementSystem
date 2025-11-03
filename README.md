@@ -50,6 +50,11 @@ This project demonstrates:
 - Database integration with SQL Server using EF Core  
 - Integration-ready foundation for APIs and Identity
 
+## 🎥 Demo
+<video src="EMS64Intro2.mp4" width="800" controls></video>
+
+
+
 
 ## ⚙️ Getting Started
 
