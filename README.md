@@ -60,6 +60,20 @@ Here’s a short walkthrough of the **Employee Management System (EMS64)** — b
 
 ---
 
+
+## 🖼️ Screenshots
+
+**🏠 Home Page**
+![Home Page](assets/1_HomePage.png)
+
+**👥 Employee List**
+![Employee List](assets/2_Listpage.png)
+
+**📝 Add / Update Employee**
+![Employee Form](assets/3_ManagePage.png)
+
+---
+
 ## ⚙️ Getting Started
 
 ### 1️⃣ Clone the Repository
