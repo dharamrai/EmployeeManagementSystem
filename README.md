@@ -56,8 +56,7 @@ This project demonstrates:
 
 Here’s a short walkthrough of the **Employee Management System (EMS64)** — built using **ASP.NET Core Razor Pages** with Clean Architecture.
 
-<video src="EMS64Intro2.mp4" width="800" controls></video>
-
+<video src="website/wwwroot/assets/EMS64Intro2.mp4" width="800" controls></video>
 ---
 
 
