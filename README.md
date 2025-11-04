@@ -51,8 +51,9 @@ This project demonstrates:
 - Integration-ready foundation for APIs and Identity
 
 ---
-
 ## 🎥 Demo Video
+
+![EMS64 Demo](Website/wwwroot/assets/EMS64Intro.gif)
 
 Click below to watch the demo:
 
