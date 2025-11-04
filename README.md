@@ -74,6 +74,18 @@ Here’s a short walkthrough of the **Employee Management System (EMS64)** — b
 
 ---
 
+### 🗄️ Database Setup
+
+A ready-to-use SQL script (`/Database/DbScript1.sql`) is included.  
+You can restore it by running the script in SQL Server Management Studio (SSMS):
+
+1. Open SSMS and connect to your local server.
+2. Create a new database named `EmployeeManagementDB`.
+3. Right-click → "New Query" → open `DbScript1.sql`.
+4. Execute the script to create schema and seed data.
+5. Update the connection string in `appsettings.json` if required.
+
+
 ## ⚙️ Getting Started
 
 ### 1️⃣ Clone the Repository
