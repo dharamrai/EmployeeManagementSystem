@@ -53,7 +53,7 @@ This project demonstrates:
 ---
 ## 🎥 Demo Video
 
-![EMS64 Demo](Website/wwwroot/assets/EMS64Intro.gif)
+![EMS64 Demo](Website/wwwroot/assets/EMS64IntroGIF.gif)
 
 Click below to watch the demo:
 
