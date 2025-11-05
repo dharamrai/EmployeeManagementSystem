@@ -55,12 +55,7 @@ This project demonstrates:
 
 ![EMS64 Demo](Website/wwwroot/assets/EMS64IntroGIF.gif)
 
-Click below to watch the demo:
-
-[▶️ Watch EMS64 Demo](https://github.com/dharamrai/EmployeeManagementSystem/blob/master/Website/wwwroot/assets/EMS64Intro2.mp4?raw=1)
-
 ---
-
 
 ## 🖼️ Screenshots
 
